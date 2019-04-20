@@ -1,0 +1,17 @@
+    
+<button (click)="updateEvents()" id="updateEvents">Update events</button>
+<button (click)="updateHeader()" id="updateHeader">Update header</button>
+<full-calendar
+  *ngIf="options"
+  #fullcalendar
+  [editable]="true"
+  [events]="eventsModel"
+  [header]="options.header"
+  [customButtons]="options.customButtons"
+  (dateClick)="dateClick($event)"
+  (eventDragStop)="eventDragStop($event)"
+  [plugins]="options.plugins"
+  (dayRender)="dayRender($event,el)"
+  (eventClick)="eventClick($event)"
+  [columnHeaderHtml]="options.columnHeaderHtml"
+></full-calendar>
