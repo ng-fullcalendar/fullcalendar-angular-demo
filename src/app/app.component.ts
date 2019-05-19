@@ -1,6 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
-import interactionPlugin from '@fullcalendar/interaction';
+import interactionPlugin, { Draggable } from '@fullcalendar/interaction';
 import { FullCalendarComponent } from '@fullcalendar/angular';
 
 @Component({
@@ -12,6 +12,7 @@ export class AppComponent implements OnInit {
   options: any;
   eventsModel: any;
   @ViewChild('fullcalendar') fullcalendar: FullCalendarComponent;
+  @ViewChild('external') external: ElementRef;
   ngOnInit() {
     this.options = {
       editable: true,
@@ -33,7 +34,14 @@ export class AppComponent implements OnInit {
       },
       plugins: [dayGridPlugin, interactionPlugin]
     };
-
+    new Draggable(this.external.nativeElement, {
+      itemSelector: '.fc-event',
+      eventData: function(eventEl) {
+        return {
+          title: eventEl.innerText
+        };
+      }
+  });
   }
   eventClick(model) {
     console.log(model);
