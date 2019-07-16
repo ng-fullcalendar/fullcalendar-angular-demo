@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin, { Draggable } from '@fullcalendar/interaction';
 import { FullCalendarComponent } from '@fullcalendar/angular';
+import timeGridPlugin from '@fullcalendar/timegrid';
 
 @Component({
   selector: 'my-app',
@@ -27,12 +28,12 @@ export class AppComponent implements OnInit {
       header: {
         left: 'prev,next today myCustomButton',
         center: 'title',
-        right: 'dayGridMonth'
+        right: 'dayGridMonth,timeGridWeek,timeGridDay'
       },
       columnHeaderHtml: () => {
           return '<b>Friday!</b>';
       },
-      plugins: [dayGridPlugin, interactionPlugin]
+      plugins: [dayGridPlugin, interactionPlugin, timeGridPlugin]
     };
     new Draggable(this.external.nativeElement, {
       itemSelector: '.fc-event',
