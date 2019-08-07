@@ -34,6 +34,7 @@ export class AppComponent implements OnInit {
       columnHeaderHtml: () => {
           return '<b>Friday!</b>';
       },
+      // add other plugins
       plugins: [dayGridPlugin, interactionPlugin, timeGridPlugin]
     };
     new Draggable(this.external.nativeElement, {
