@@ -25,6 +25,7 @@ export class AppComponent implements OnInit {
           }
         }
       },
+      theme: 'standart', // default view, may be bootstrap
       header: {
         left: 'prev,next today myCustomButton',
         center: 'title',
