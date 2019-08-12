@@ -15,6 +15,7 @@ export class AppComponent implements OnInit {
   @ViewChild('fullcalendar') fullcalendar: FullCalendarComponent;
   @ViewChild('external') external: ElementRef;
   ngOnInit() {
+    // Don't use FullcalendarOption interface
     this.options = {
       editable: true,
       customButtons: {
