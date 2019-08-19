@@ -3,6 +3,7 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin, { Draggable } from '@fullcalendar/interaction';
 import { FullCalendarComponent } from '@fullcalendar/angular';
 import timeGridPlugin from '@fullcalendar/timegrid';
+import resourceTimeGridPlugin from '@fullcalendar/resource-timegrid';
 
 @Component({
   selector: 'my-app',
@@ -36,7 +37,7 @@ export class AppComponent implements OnInit {
           return '<b>Friday!</b>';
       },
       // add other plugins
-      plugins: [dayGridPlugin, interactionPlugin, timeGridPlugin]
+      plugins: [dayGridPlugin, interactionPlugin, timeGridPlugin, resourceTimeGridPlugin]
     };
     new Draggable(this.external.nativeElement, {
       itemSelector: '.fc-event',
