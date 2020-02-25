@@ -4,6 +4,8 @@ import interactionPlugin, { Draggable } from '@fullcalendar/interaction';
 import { FullCalendarComponent } from '@fullcalendar/angular';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import resourceTimeGridPlugin from '@fullcalendar/resource-timegrid';
+import esLocale from '@fullcalendar/core/locales/es';
+import frLocale from '@fullcalendar/core/locales/fr';
 
 @Component({
   selector: 'my-app',
@@ -36,6 +38,8 @@ export class AppComponent implements OnInit {
       columnHeaderHtml: () => {
           return '<b>Friday!</b>';
       },
+      locales: [ esLocale, frLocale ],
+      locale: 'fr',
       // add other plugins
       plugins: [dayGridPlugin, interactionPlugin, timeGridPlugin, resourceTimeGridPlugin]
     };
